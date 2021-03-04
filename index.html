@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="table">
+        <div class="table__head">
+            <div onclick="sortByColumn('phone')">Phone</div>
+            <div onclick="sortByColumn('name')">Full Name</div>
+            <div onclick="sortByColumn('email')">Email</div>
+            <div onclick="sortByColumn('address')">Address</div>
+            <div>Operation</div>
+        </div>
+
+        <div class="js-table-body">
+
+        </div>
+    </div>
+
+    <form class="form" method="post">
+        <input class="form__phone js-form-phone" type="text" placeholder="Phone:">
+        <input class="form__name js-form-name" type="text" placeholder="Full Name:">
+        <input class="form__email js-form-email" type="email" placeholder="Email:">
+        <input class="form__address js-form-address" type="text" placeholder="Address:">
+        <input class="form__button" type="submit" value="Add new record(or Save)">
+    </form>
+
+    <div id="js-popup" class="popup">
+        <form class="form">
+            <input class="form__phone2 form__phone" type="number" placeholder="Phone:">
+            <input class="form__name2 form__name" type="text" placeholder="Full Name:">
+            <input class="form__email2 form__email" type="email" placeholder="Email:">
+            <input class="form__address2 form__address" type="text" placeholder="Address:">
+            <input onclick="editData()" class="form__button" type="button" value="Edit data">
+
+            <div onclick="closePopup()" class="close">+</div>
+        </form>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
