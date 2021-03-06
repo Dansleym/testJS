@@ -4,10 +4,46 @@
     padding: 0;
 }
 
+#searchInput {
+    width: 900px;
+    display: block;
+    margin: 20px 60px;;
+    font-size: 16px;
+    padding: 12px 20px 12px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.form__error, .form__error-edit {
+    position: absolute;
+    border: 2px solid red;
+    width: 80%;
+    background: white;
+    padding: 10px;
+    font-size: 18px;
+    top: 40px;
+    left: 40px;
+    border-radius: 5px;
+    text-align: center;
+    visibility: hidden;
+}
+
+.form__error::before, .form__error-edit::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid red;
+}
+
 .table {
     width: 900px;
-    margin: 0 auto;
-    margin-top: 8px;
+    margin-left: 60px;
 }
 
 .table__row-delete {
@@ -34,8 +70,16 @@
     padding: 10px;
     border: 2px solid black;
     border-right: none;
-    font-size: 23px;
+    font-size: 20px;
     word-wrap: break-word;
+}
+
+.table__head div:last-child {
+    cursor: default;
+}
+
+.table__head div:last-child:hover {
+    background-color: lightgray;
 }
 
 .table__row div {
@@ -44,6 +88,12 @@
 
 .table__head div {
     background-color: lightgray;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.table__head div:hover, .table__head div:focus {
+    background-color: darkgray;
 }
 
 .table__head div:last-child, .table__row div:last-child {
@@ -54,14 +104,14 @@
 }
 
 
-/*FORM*/
+/*FORM ADD*/
 .form {
     display: flex;
     flex-direction: column;
     width: 350px;
     position: absolute;
-    left: 50px;
-    top: 8px;
+    right: 90px;
+    top: 86px;
 }
 
 .form input {
@@ -76,12 +126,23 @@
     border-bottom: 2px solid black;
 }
 
-.form__button {
+.form__button, .form__button-edit {
     cursor: pointer;
+    background-color: lightgray;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.form__button:hover, .form__button:focus {
+    background-color: darkgray;
+}
+
+.form__button-edit:hover, .form__button-edit:focus {
+    background-color: darkgray;
 }
 
 
-/*POPUP FORM*/
+/*POPUP FORM EDIT*/
 .close {
     position: absolute;
     top: -48px;
@@ -115,4 +176,20 @@
 
 .popup.show {
     visibility: visible;
+}
+
+@media (max-width: 1400px) {
+    #searchInput {
+        margin-top: 280px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        position: absolute;
+        right: auto;
+        left: 90px;
+        top: 20px;
+    }
 }

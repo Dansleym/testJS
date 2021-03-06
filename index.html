@@ -5,17 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Test for GeeksForLess</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
+    <input type="text" id="searchInput" onkeyup="searchData()" placeholder="Search..">
+
     <div class="table">
         <div class="table__head">
-            <div onclick="sortByColumn('phone')">Phone</div>
-            <div onclick="sortByColumn('name')">Full Name</div>
-            <div onclick="sortByColumn('email')">Email</div>
-            <div onclick="sortByColumn('address')">Address</div>
+            <div onclick="sortByColumn('phone')" title="sorting by phone">Phone</div>
+            <div onclick="sortByColumn('name')" title="sorting by name">Full Name</div>
+            <div onclick="sortByColumn('email')" title="sorting by email">Email</div>
+            <div onclick="sortByColumn('address')" title="sorting by address">Address</div>
             <div>Operation</div>
         </div>
 
@@ -25,22 +27,26 @@
     </div>
 
     <form class="form" method="post">
-        <input class="form__phone js-form-phone" type="text" placeholder="Phone:">
+        <span id="js-form-error" class="form__error">не верно введенный номер!</span>
+
+        <input class="form__phone js-form-phone" type="text" placeholder="Phone: 380XXXXXXXXX">
         <input class="form__name js-form-name" type="text" placeholder="Full Name:">
         <input class="form__email js-form-email" type="email" placeholder="Email:">
         <input class="form__address js-form-address" type="text" placeholder="Address:">
-        <input class="form__button" type="submit" value="Add new record(or Save)">
+        <input class="form__button" type="button" value="Add new record(or Save)">
     </form>
 
     <div id="js-popup" class="popup">
         <form class="form">
-            <input class="form__phone2 form__phone" type="number" placeholder="Phone:">
-            <input class="form__name2 form__name" type="text" placeholder="Full Name:">
-            <input class="form__email2 form__email" type="email" placeholder="Email:">
-            <input class="form__address2 form__address" type="text" placeholder="Address:">
-            <input onclick="editData()" class="form__button" type="button" value="Edit data">
+            <div onclick="closePopup()" class="close" title="close">+</div>
 
-            <div onclick="closePopup()" class="close">+</div>
+            <span id="js-form-error-edit" class="form__error">не верно введенный номер!</span>
+
+            <input class="form__phone2 js-form-phone-edit" type="text" placeholder="Phone: 380XXXXXXXXX">
+            <input class="form__name2 js-form-name-edit" type="text" placeholder="Full Name:">
+            <input class="form__email2 js-form-email-edit" type="email" placeholder="Email:">
+            <input class="form__address2 js-form-address-edit" type="text" placeholder="Address:">
+            <input class="form__button-edit" type="button" value="Edit data">
         </form>
     </div>
 </div>
